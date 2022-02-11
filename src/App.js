@@ -1,10 +1,10 @@
-import "./styles.css";
-import Box from "./Box";
+import './styles.css';
+import BoxList from './BoxList';
 
 export default function App() {
   return (
     <div className="App">
-      <Box height={10} width={20} color="purple" />
+      <BoxList />
     </div>
   );
 }
