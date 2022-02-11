@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Box extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange() {
+    console.log('do something');
+  }
   render() {
     return (
       <div>
@@ -8,10 +17,10 @@ class Box extends Component {
           style={{
             height: `${this.props.height}em`,
             width: `${this.props.width}em`,
-            backgroundColor: `${this.props.color}`
+            backgroundColor: this.props.color
           }}
         />
-        <button>Useless button for now</button>
+        <button onChange={this.handleChange}>Useless button for now</button>
       </div>
     );
   }

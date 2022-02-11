@@ -5,12 +5,20 @@ class BoxList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boxList: []
+      boxes: [{ width: 10, height: 40, color: 'orange' }]
     };
   }
 
   render() {
-    return <Box height={10} width={20} color="purple" />;
+    const boxes = this.state.boxes.map((b) => (
+      <Box height={b.height} width={b.width} color={b.color} />
+    ));
+    return (
+      <>
+        <h1>Color Box Maker Thingy</h1>
+        {boxes}
+      </>
+    );
   }
 }
 
