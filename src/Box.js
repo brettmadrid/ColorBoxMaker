@@ -8,24 +8,25 @@ class Box extends Component {
   }
 
   deleteBox() {
-    console.log('do something');
+    console.log(this.props);
+    this.props.remove(this.props.id);
   }
   render() {
     return (
       <div
-        className="Box-container"
+        className='Box-container'
         style={{ display: 'flex', flexDirection: 'column', margin: '10px' }}>
         <div
           style={{
             height: `${this.props.height}em`,
             width: `${this.props.width}em`,
-            backgroundColor: this.props.color
+            backgroundColor: this.props.color,
           }}
         />
         <button
-          onChange={this.deleteBox}
+          onClick={this.deleteBox}
           style={{ width: `${this.props.width}em` }}>
-          Useless button for now
+          Delete Box
         </button>
       </div>
     );

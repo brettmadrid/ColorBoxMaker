@@ -6,19 +6,29 @@ class BoxList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boxes: []
+      boxes: [],
     };
   }
 
-  updateBoxes = (box) => {
+  updateBoxes = box => {
     this.setState({ boxes: [...this.state.boxes, box] });
   };
 
-  remove = (id) => {};
+  remove = id => {
+    const removed = this.state.boxes.filter(b => b.id != id);
+    this.setState({ boxes: removed });
+  };
 
   render() {
-    const boxes = this.state.boxes.map((b) => (
-      <Box height={b.height} width={b.width} color={b.color} />
+    const boxes = this.state.boxes.map(b => (
+      <Box
+        key={b.id}
+        id={b.id}
+        height={b.height}
+        width={b.width}
+        color={b.color}
+        remove={this.remove}
+      />
     ));
     return (
       <>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './BoxForm.css';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 class BoxForm extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class BoxForm extends Component {
     this.state = {
       height: '',
       width: '',
-      color: ''
+      color: '',
     };
     this.submitForm = this.submitForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -16,7 +16,7 @@ class BoxForm extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    const newBox = { ...this.state, id: uuid() };
+    const newBox = { ...this.state, id: uuidv4() };
     this.props.updateBoxes(newBox);
     this.setState({ height: '', width: '', color: '' });
   }
@@ -28,33 +28,33 @@ class BoxForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitForm}>
-        <div className="BoxForm-field-container">
-          <label htmlFor="height">Height </label>
+        <div className='BoxForm-field-container'>
+          <label htmlFor='height'>Height </label>
           <input
-            type="text"
-            name="height"
+            type='text'
+            name='height'
             value={this.state.height}
-            id="height"
+            id='height'
             onChange={this.handleChange}
           />
         </div>
-        <div className="BoxForm-field-container">
-          <label htmlFor="width">Width </label>
+        <div className='BoxForm-field-container'>
+          <label htmlFor='width'>Width </label>
           <input
-            type="text"
-            name="width"
+            type='text'
+            name='width'
             value={this.state.width}
-            id="width"
+            id='width'
             onChange={this.handleChange}
           />
         </div>
-        <div className="BoxForm-field-container">
-          <label htmlFor="color">Color </label>
+        <div className='BoxForm-field-container'>
+          <label htmlFor='color'>Color </label>
           <input
-            type="text"
-            name="color"
+            type='text'
+            name='color'
             value={this.state.color}
-            id="color"
+            id='color'
             onChange={this.handleChange}
           />
         </div>
