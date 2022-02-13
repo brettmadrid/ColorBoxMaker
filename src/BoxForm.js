@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './BoxForm.css';
+import uuid from 'uuid';
 
 class BoxForm extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class BoxForm extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    this.props.updateBoxes(this.state);
+    const newBox = { ...this.state, id: uuid() };
+    this.props.updateBoxes(newBox);
     this.setState({ height: '', width: '', color: '' });
   }
 

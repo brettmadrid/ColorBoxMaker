@@ -4,15 +4,17 @@ class Box extends Component {
   constructor(props) {
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
+    this.deleteBox = this.deleteBox.bind(this);
   }
 
-  handleChange() {
+  deleteBox() {
     console.log('do something');
   }
   render() {
     return (
-      <div>
+      <div
+        className="Box-container"
+        style={{ display: 'flex', flexDirection: 'column', margin: '10px' }}>
         <div
           style={{
             height: `${this.props.height}em`,
@@ -20,7 +22,11 @@ class Box extends Component {
             backgroundColor: this.props.color
           }}
         />
-        <button onChange={this.handleChange}>Useless button for now</button>
+        <button
+          onChange={this.deleteBox}
+          style={{ width: `${this.props.width}em` }}>
+          Useless button for now
+        </button>
       </div>
     );
   }

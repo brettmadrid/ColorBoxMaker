@@ -6,13 +6,15 @@ class BoxList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boxes: [{ width: 10, height: 10, color: 'orange' }]
+      boxes: []
     };
   }
 
   updateBoxes = (box) => {
     this.setState({ boxes: [...this.state.boxes, box] });
   };
+
+  remove = (id) => {};
 
   render() {
     const boxes = this.state.boxes.map((b) => (
